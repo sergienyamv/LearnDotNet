@@ -17,22 +17,14 @@ namespace Sorting
         {
             var data = new TestData();
             var basis = int.MaxValue / (count + 1);
-            var sorted = new List<int>();
+            var uns = new List<int>();
             for (int i = 0; i < count; i++)
             {
-                sorted.Add(_random.Next(basis) + basis * i);
+                uns.Add(_random.Next());
             }
-            data.SortedArray = sorted.ToArray();
+            data.UnsortedArray = uns.ToArray();
 
-            var unsorted = new List<int>();
-
-            while(sorted.Any())
-            {
-                var i = _random.Next(sorted.Count);
-                unsorted.Add(sorted[i]);
-                sorted.RemoveAt(i);
-            }
-            data.UnsortedArray = unsorted.ToArray();
+            data.SortedArray = uns.OrderBy(i => i).ToArray();
 
             return data;
         }

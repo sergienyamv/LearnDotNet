@@ -10,7 +10,7 @@ namespace Sorting
         static Random _random = new Random();
 
         static TestData[] TestContext =
-            Enumerable.Repeat(0, 10).Select(i => TestData.Create(100000)).ToArray();
+            Enumerable.Repeat(0, 10).Select(i => TestData.Create(1000000)).ToArray();
 
 
         [Test, TestCaseSource("TestContext")]
